@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Simple Invoice Template Design</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" type="text/css" href="invoice.css">
+</head>
+<body>
+
+<section>
+  <div class="invoice">
+    <div class="header">
+      <div class="i_row">
+        <div class="i_logo">
+          <p>Eskom Distribution</p>
+        </div>
+        <div class="i_title">
+          <h2>INVOICE</h2>
+          <p class="p_title text_right">
+            September 25, 2024
+          </p>
+        </div>
+      </div>
+      <div class="i_row">
+        <div class="i_number">
+          <p class="p_title">INVOICE NO: 3452324</p>
+        </div>
+        <div class="i_address text_right">
+          <p>TO</p>
+          <p class="p_title">
+            Tholithemba Ndumo<br />
+            <span>Johannesburg, Fourways</span><br />
+            <span>South Africa</span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="body">
+      <div class="i_table">
+        <div class="i_table_head">
+          <div class="i_row">
+            <div class="i_col w_15">
+              <p class="p_title">QTY</p>
+            </div>
+            <div class="i_col w_55">
+              <p class="p_title">DESCRIPTION</p>
+            </div>
+            <div class="i_col w_15">
+              <p class="p_title">PRICE</p>
+            </div>
+            <div class="i_col w_15">
+              <p class="p_title">TOTAL</p>
+            </div>
+          </div>
+        </div>
+        <div class="i_table_body">
+          <div class="i_row">
+            <div class="i_col w_15">
+              <p>3</p>
+            </div>
+            <div class="i_col w_55">
+              <p>Residential PV.</p>
+              <span>Energy management and PV solutions for residential consumers.</span>
+            </div>
+            <div class="i_col w_15">
+              <p>R10.00</p>
+            </div>
+            <div class="i_col w_15">
+              <p>R30.00</p>
+            </div>
+          </div>
+          <div class="i_row">
+            <div class="i_col w_15">
+              <p>2</p>
+            </div>
+            <div class="i_col w_55">
+              <p>Commercial PV.</p>
+              <span>intergrated Energy management and PV solutions for Commercial businesses.</span>
+            </div>
+            <div class="i_col w_15">
+              <p>R10.00</p>
+            </div>
+            <div class="i_col w_15">
+              <p>R20.00</p>
+            </div>
+          </div>
+          <div class="i_row">
+            <div class="i_col w_15">
+              <p>5</p>
+            </div>
+            <div class="i_col w_55">
+              <p>Industrial PV.</p>
+              <span>intergrated Energy management and PV solutions for industrial sector.</span>
+            </div>
+            <div class="i_col w_15">
+              <p>R10.00</p>
+            </div>
+            <div class="i_col w_15">
+              <p>R100.00</p>
+            </div>
+          </div>
+        </div>
+        <div class="i_table_foot">
+          <div class="i_row">
+            <div class="i_col w_15">
+              <p></p>
+            </div>
+            <div class="i_col w_55">
+              <p></p>
+            </div>
+            <div class="i_col w_15">
+              <p>Sub Total</p>
+              <p>Tax 10%</p>
+            </div>
+            <div class="i_col w_15">
+              <p>R150.00</p>
+              <p>R15.00</p>
+            </div>
+          </div>
+          <div class="i_row grand_total_wrap">
+            <div class="i_col w_50">
+            </div>
+            <div class="i_col w_50 grand_total">
+              <p><span>GRAND TOTAL:</span>
+                <span>R165.00</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="i_row">
+        <div class="i_col w_50">
+          <p class="p_title">Payment Method</p>
+          <p>We accept payments via bank transfer, credit card, PayPal. Please reference the invoice number when making a payment.</p>
+        </div>
+        <div class="i_col w_50 text_right">
+          <p class="p_title">Terms and Conditions</p>
+          <p>Payment is due within [30 days] of the invoice date unless otherwise agreed upon in writing. <br> All prices are exclusive of taxes unless specified. Applicable taxes will be added to the invoice total.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!----Quote--->
+<div class="container">
+    <h1>Quotation Generator</h1>
+    <form id="quotationForm">
+        <label for="service">Service Required:</label>
+        <select id="service" name="service">
+            <option value="service1">Service 1</option>
+            <option value="service2">Service 2</option>
+            <option value="service2">Service 3</option>
+        </select>
+
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" required>
+
+        <button type="submit">Get Quote</button>
+    </form>
+
+    <div id="quoteResult"></div>
+</div>
+
+<script>
+    // Define prices for each service
+    const prices = {
+        service1: 36000, // Set your actual price for Service 1
+        service2: 40000, // Set your actual price for Service 2
+        service3: 50000,  // Set your actual price for Service 3
+    };
+
+    document.getElementById('quotationForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+    
+        const service = document.getElementById('service').value;
+        const quantity = document.getElementById('quantity').value;
+    
+        // Get the price for the selected service
+        const pricePerUnit = prices[service];
+    
+        if (pricePerUnit !== undefined) {
+            const totalQuote = pricePerUnit * quantity;
+            document.getElementById('quoteResult').innerText = `Your quote is: R${totalQuote}`;
+        } else {
+            document.getElementById('quoteResult').innerText = 'Service not found.';
+        }
+    });
+</script>
+
+ <!----pricing table-->
+ <div class="container">
+    <h1>Choose your plan</h1>
+    <div class="price-row">
+        <div class="box">
+            <h2>Basic plan</h2>
+            <h1>R1701.53<span>/month</span></h1>
+            <button>2.5 hours of back up</button>
+            <div class="input-icons">
+                <i class="fa-regular fa-refrigerator"></i> 
+            </div>
+            <div class="dropdown">
+                <button>Features</button>
+                <div class="content">
+                    <a href="">6 Solar pannels included </a>
+                    <a href="">600 warranted cycles</a>
+                    <a href="">1 Superior, modular, battery</a>
+                    <a href="">Solar, generator and battery ready</a>
+                    <a href="">Add extra solar/battery anytime</a>
+                    <a href="">Synapse ultra hybrid 5KW inventer</a>
+                </div>
+            </div>
+            <div class="btn">Submit and Conatact me</div>
+        </div>
+        <div class="box">
+            <h2>Premium Plan</h2>
+            <h1>R2457.80<span>/month</span></h1>
+            <button>4 Hours of back up</button>
+            <div class="input-icons">
+                <i class="fa-regular fa-refrigerator"></i> 
+            </div>
+            <div class="dropdown">
+                <button>Features</button>
+                <div class="content">
+                    <a href="">Synapse hybrid 5KW inventer</a>
+                    <a href="">Approx. 25KW generation/day </a>
+                    <a href="">Add extra solar/battery anytime</a>
+                    <a href="">Solar, generator and battery ready</a>
+                    <a href="">2 Superior, modular batteries </a>
+                    <a href="">6000 warranted cycles</a>
+                    <a href="">10 Solar panels included</a>
+                </div>
+            </div>
+            <div class="btn">Submit and Contact me</div>
+        </div>
+        <div class="box">
+            <h2>Ultimate Plan</h2>
+            <h1>R2835.92<span>/month</span></h1>
+            <button>4 hours of back up</button>
+            <div class="input-icons">
+                <i class="fa-regular fa-refrigerator"></i> 
+                <i class="fa-solid fa-fire-burner"></i>
+                <i class="fa-solid fa-route"></i>
+            </div>
+            <div class="dropdown">
+                <button>Features</button>
+                <div class="content">
+                    <a href="">10 Solar pannels included </a>
+                    <a href="">6000 warranted cycles</a>
+                    <a href="">2 Superior, modular, battery</a>
+                    <a href="">Solar, generator and battery ready</a>
+                    <a href="">Approx. 25KWh generation/day</a>
+                    <a href="">Add extra solar/battery anytime</a>
+                    <a href="">Synapse ultra hybrid 8KW inventer</a>
+                </div>
+            </div>
+            <div class="btn">Submit and Contact me</div>
+        </div>
+    </div>
+</div>
+
+<div class="carousel">
+  <div class="carousel-inner">
+      <div class="carousel-item active">
+          <img src="images/background.png.jpg"  class="d-block w-100 " alt="Image 1">
+          <div class="carousel-caption d-none d-md-block">
+             
+          </div>
+      </div>
+      <div class="carousel-item">
+          <img src="images/sys.png"  class="d-block w-100 " alt="Image 2">
+          <div class="carousel-caption d-none d-md-block"></div>
+         
+      </div>
+      <div class="carousel-item">
+          <img src="images/PPL.png"  class="d-block w-100 " alt="Image 3">
+          <div class="carousel-caption d-none d-md-block"></div>
+              
+          </div>
+      </div>
+  </div>
+  <div>
+  <button class="carousel-button prev" onclick="prevSlide()">❮</button>
+  <button class="carousel-button next" onclick="nextSlide()">❯</button>
+</div>
+</div>
+</body>
+</html>

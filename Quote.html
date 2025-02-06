@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Generate Quote</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/Eskom.png "width="90px" height="50%" alt="Website Logo"> 
+        </div>
+        <h1  style="font-family: 'Arial', sans-serif; color: #00cc99; font-size: 25px;">Redefining for the better future</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="packages.html">Packages</a></li>
+                <li><a href="https://www.eskom.co.za/distribution">My Eskom</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="image-container">
+        <img src="images/background.png.jpg" alt="Descriptive Alt Text" class="main-image" width="100%" height="0px">
+        <div class="overlay-text">As an Eskom Distribution client,
+            unlock even greater benefits.<br>
+            Choose your options below to
+            receive a personalised quote,
+            custom-tailored just for you.</div>
+    </div>
+    <div class="watermark">MOCKWEBSITE</div>
+
+
+    <h1>Models</h1>
+
+<div class="container2">
+    <div class="radio-tile-group">
+
+      <div class="input-container">
+        <input id="walk" type="radio" name="radio">
+        <div class="radio-tile">
+            <ion-icon name="cash"></ion-icon>
+          <label for="walk">BUY</label>
+        </div>
+      </div>
+      <div class="input-container">
+        <input id="bike" type="radio" name="radio">
+        <div class="radio-tile">
+            <ion-icon name="grid"></ion-icon>
+          <label for="bike">SOLAR<BR> AS SERVICE</label>
+        </div>
+      </div>
+      <div class="input-container">
+        <input id="car" type="radio" name="radio">
+        <div class="radio-tile">
+            <ion-icon name="receipt"></ion-icon>
+          <label for="car">PPA</label>
+        </div>
+    </div>
+
+    </div>
+  </div>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+
+<section class="green-part">
+    <div class="container2">
+        <h1>Quotation Generator</h1>
+        <form id="quotationForm">
+            <label for="service">Service Required:</label>
+            <select id="service" name="service">
+                <option value="service1">Basic plan</option>
+                <option value="service2">Premium plan</option>
+                <option value="service2">Ultimate plan</option>
+            </select>
+    
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" required>
+    
+            <button type="submit">Get Quote</button>
+        </form>
+    
+        <div id="quoteResult"></div>
+    </div>
+</section>
+<div class="button-container">
+    <a href="form.html" class="left-button">Consult</a>
+    <a href="checkout.html" class="right-button">Proceed</a>
+</div>
+    <script>
+        // Define prices for each service
+        const prices = {
+            service1: 1701.55, // Set your actual price for Service 1
+            service2: 2457.80, // Set your actual price for Service 2
+            service3: 2835.92,  // Set your actual price for Service 3
+        };
+    
+        document.getElementById('quotationForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+        
+            const service = document.getElementById('service').value;
+            const quantity = document.getElementById('quantity').value;
+        
+            // Get the price for the selected service
+            const pricePerUnit = prices[service];
+        
+            if (pricePerUnit !== undefined) {
+                const totalQuote = pricePerUnit * quantity;
+                document.getElementById('quoteResult').innerText = `Your quote is: R${totalQuote}`;
+            } else {
+                document.getElementById('quoteResult').innerText = 'Service not found.';
+            }
+        });
+    </script>
+    
+    <section class="footer">
+        <h4>About Us</h4>
+        <p> we are the number 1 electricity company in the country and we specialize in DER/renewable sources <br>.</p>
+        <div class="icons">
+            <a1 href="https://www.facebook.com/pages/Eskom%20Distribution/147193999221966/"></a1>
+            <a1 href="https://x.com/Eskom_SA/status/1682416019732586496"></a1>
+            <a1 href="https://www.instagram.com/eskom_holdings/"></a1>
+            <a1 href="https://za.linkedin.com/company/eskom-distribution"></a1>
+            
+        </div>
+        <a1 href="https://www.eskom.co.za/distribution/" class="footer-link"><p><i class="fa fa-heart-o"></i></p></a1>
+    </section>       
+   
+                    
+
+</body>
+</html>
